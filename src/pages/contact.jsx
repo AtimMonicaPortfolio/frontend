@@ -10,8 +10,10 @@ export default function Contact() {
   const [status, setStatus] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  setStatus("Sending...");
 
+  try {
     const res = await fetch("http://127.0.0.1:5000/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -19,12 +21,21 @@ export default function Contact() {
     });
 
     const data = await res.json();
-    setStatus(
-      data.status === "sent"
-        ? "Message sent successfully!"
-        : "Error sending message."
-    );
-  };
+
+    if (res.ok && data.status === "sent") {
+      setStatus("Message sent successfully!");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      setStatus("Error sending message: " + (data.message || "Unknown error"));
+    }
+  } catch (err) {
+    console.error("Fetch error:", err);
+    setStatus("Failed to send message. Network or server error.");
+  }
+};
+
 
   return (
     <div className="flex flex-col min-h-screen">

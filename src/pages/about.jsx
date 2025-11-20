@@ -1,30 +1,73 @@
 import Footer from "../components/footer";
+import MyImage from "../assets/about.jpg"; // change to your actual file name
 
 export default function About() {
   return (
     <section className="min-h-screen flex flex-col justify-between">
-      <div className="max-w-4xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-4">About Me</h1>
+      <div className="max-w-6xl mx-auto p-6">
+        <h1 className="text-3xl font-bold mb-8">About Me</h1>
 
-        <p className="max-w-3xl mb-6">
-          I am a passionate backend developer transitioning from finance to software
-          development. My background in accounting and financial analysis strengthens my
-          ability to write accurate, efficient, and well-structured backend solutions.
-        </p>
+        {/* 4 Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-        <h2 className="text-2xl font-semibold mt-4 mb-2">Technical Skills</h2>
+          {/* IMAGE GRID (Top-left) */}
+          <div className="flex justify-left">
+            <img
+              src={MyImage}
+              alt="Atim Monica"
+              className="w-64 h-65 object-cover rounded-2xl shadow-md"
+            />
+          </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 list-disc pl-6">
-          <li>Python, Django, Flask, REST APIs</li>
-          <li>React, JavaScript, HTML, CSS</li>
-          <li>PostgreSQL, MySQL, SQL Server, MongoDB</li>
-          <li>OAuth, JWT Authentication</li>
-          <li>Git, GitHub, Version Control</li>
-          <li>Data Analysis with Jupyter Notebooks</li>
-        </ul>
+          {/* INTRODUCTION + EDUCATION (Top-right) */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-3">Introduction & Education</h2>
+            <p className="leading-relaxed mb-4">
+              I’m <span className="font-semibold">Atim Monica</span> aka lionness_coder - a
+              <span className="font-semibold"> Software Developer</span> specializing in 
+              <span className="font-semibold"> Backend Development</span>.
+            </p>
+
+            <p className="leading-relaxed mb-4">
+              I hold a <span className="font-semibold">Bachelor of Accounting and Finance</span> 
+              and a <span className="font-semibold">Diploma in Computer Science</span>, which 
+              strengthened my foundation in software development, databases, and analytical 
+              problem-solving. My growth in tech has also been shaped by intensive programs such 
+              as the <span className="font-semibold">
+              Refactory Software Development Apprenticeship Program</span>, along with 
+              practical bootcamps that accelerated my journey.
+            </p>
+          </div>
+
+          {/* JOURNEY IN TECH (Bottom-left) */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-3">My Journey in Tech</h2>
+            <p className="leading-relaxed">
+              My journey into technology began through my early proficiency with accounting 
+              software such as QuickBooks and Tally. Working with these tools sparked my 
+              curiosity about how systems are built, how data flows behind the scenes, and 
+              how automation simplifies work. This interest led me to explore programming, 
+              starting with Python, then advancing into backend frameworks, databases, and 
+              API development.
+            </p>
+          </div>
+
+          {/* HOBBIES + INTERESTS (Bottom-right) */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-3">Interests & Hobbies</h2>
+            <p className="leading-relaxed">
+              Outside of software development, I enjoy hands-on crafts, creative problem 
+              solving, and community engagement. I love exploring new technologies, 
+              improving systems through innovation, and participating in programs that 
+              empower young people in tech. I also enjoy personal development activities 
+              and contributing to meaningful initiatives.
+            </p>
+          </div>
+
+        </div>
       </div>
 
-      {/* Footer at the bottom */}
+      {/* Footer */}
       <Footer />
     </section>
   );

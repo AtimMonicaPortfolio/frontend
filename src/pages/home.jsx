@@ -9,11 +9,16 @@ export default function Home() {
           Hello, I’m <span className="text-tigerGold">Atim Monica</span>
         </h1>
 
-        <p className="text-lg max-w-3xl leading-relaxed mb-6">
-          Backend Developer skilled in Python, Django REST Framework, Flask, React, and
-          data analysis. I combine analytical problem-solving with clean code practices
-          to create efficient backend systems.
+        <p className="text-lg max-w-3xl leading-relaxed mb-6"> 
+        <span className="font-semibold"> Software Developer </span>
+        specializing in 
+        <span className="font-semibold"> Backend Development</span>.
+        I work with Python, Django REST Framework, Flask, and Node.js to build efficient
+        backend systems and clean API structures. I also use React to deliver smooth
+        user-facing functionality. My approach combines analytical problem-solving with
+        clean, maintainable code to create reliable and scalable software solutions.
         </p>
+
 
         <div className="flex gap-4">
           <a
