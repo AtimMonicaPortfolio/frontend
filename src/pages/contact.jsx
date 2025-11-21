@@ -110,12 +110,12 @@ export default function Contact() {
 // CONTACT BAR
 export function ContactBar() {
   return (
-    <div className="bg-deepBlue p-4 rounded-md flex flex-col gap-4 shadow-lg w-full max-w-md">
+    <div className="p-10 rounded-md flex flex-col gap-6 shadow-lg w-full max-w-md">
 
       {/* Email always on top */}
       <ContactCard
         href="mailto:atimmonica360@gmail.com"
-        icon={<HiOutlineMail className="w-6 h-6 text-gray-800" />}
+        icon={<HiOutlineMail className="w-6 h-6 text-teal-800" />}
         label="atimmonica360@gmail.com"
         fullWidth
       />
@@ -134,7 +134,7 @@ export function ContactBar() {
         />
         <ContactCard
           href="https://www.linkedin.com/in/atim-monica-a4a043299"
-          icon={<FaLinkedin className="w-6 h-6 text-blue-700" />}
+          icon={<FaLinkedin className="w-6 h-6 text-deepblue-700" />}
           label="LinkedIn"
         />
         <ContactCard
@@ -147,7 +147,6 @@ export function ContactBar() {
     </div>
   );
 }
-
 
 // CONTACT CARD
 function ContactCard({ href, icon, label, fullWidth }) {

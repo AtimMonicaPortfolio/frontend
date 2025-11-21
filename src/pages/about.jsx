@@ -23,10 +23,12 @@ export default function About() {
           <div>
             <h2 className="text-2xl font-semibold mb-3">Introduction & Education</h2>
             <p className="leading-relaxed mb-4">
-              I’m <span className="font-semibold">Atim Monica</span> aka lionness_coder - a
-              <span className="font-semibold"> Software Developer</span> specializing in 
-              <span className="font-semibold"> Backend Development</span>.
+              I’m <span className="font-semibold">Atim Monica</span>, a freelance 
+              <span className="font-semibold"> Software Developer</span>. I often call myself 
+              <span className="font-semibold"> the Lioness Coder</span> because of my passion 
+              and determination for tech.
             </p>
+
 
             <p className="leading-relaxed mb-4">
               I hold a <span className="font-semibold">Bachelor of Accounting and Finance</span> 
