@@ -10,41 +10,41 @@ export default function Contact() {
   const [status, setStatus] = useState("");
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("Sending...");
+    e.preventDefault();
+    setStatus("Sending...");
 
-  try {
-    const res = await fetch("https://backendm-55td.onrender.com/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message }),
-    });
+    try {
+      const res = await fetch("https://backendm-55td.onrender.com/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (res.ok && data.status === "sent") {
-      setStatus("Message sent successfully!");
-      setName("");
-      setEmail("");
-      setMessage("");
-    } else {
-      setStatus("Error sending message: " + (data.message || "Unknown error"));
+      if (res.ok && data.status === "sent") {
+        setStatus("Message sent successfully!");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("Error sending message: " + (data.message || "Unknown error"));
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setStatus("Failed to send message. Network or server error.");
     }
-  } catch (err) {
-    console.error("Fetch error:", err);
-    setStatus("Failed to send message. Network or server error.");
-  }
-};
-
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow max-w-6xl mx-auto p-6">
+
         {/* Top row: Left Form + Right Contact Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-10">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-16">
 
           {/* LEFT SIDE */}
-          <div className="md:w-1/2 flex flex-col gap-4">
+          <div className="md:w-1/2 w-full flex flex-col gap-4">
             <h1 className="text-4xl font-bold mb-2 text-deepBlue">Get In Touch</h1>
 
             <p className="text-lg text-gray-800 flex items-center gap-2 drop-shadow">
@@ -53,7 +53,7 @@ export default function Contact() {
             </p>
 
             {/* FORM */}
-            <form onSubmit={handleSubmit} className="grid gap-4 mt-4">
+            <form onSubmit={handleSubmit} className="grid gap-4 mt-4 w-full">
               <input
                 type="text"
                 placeholder="Your Name"
@@ -94,7 +94,7 @@ export default function Contact() {
           </div>
 
           {/* RIGHT SIDE – CONTACT BAR */}
-          <div className="md:w-1/2 flex justify-end mt-10 md:mt-20 pr-4">
+          <div className="w-full md:w-1/2 flex justify-end mt-6 md:mt-20 pr-0 md:pr-4">
             <ContactBar />
           </div>
 
@@ -110,7 +110,7 @@ export default function Contact() {
 // CONTACT BAR
 export function ContactBar() {
   return (
-    <div className="p-10 rounded-md flex flex-col gap-6 shadow-lg w-full max-w-md">
+    <div className="p-6 md:p-10 rounded-md flex flex-col gap-6 shadow-lg w-full md:max-w-md">
 
       {/* Email always on top */}
       <ContactCard
@@ -148,19 +148,19 @@ export function ContactBar() {
   );
 }
 
-// CONTACT CARD
+
 function ContactCard({ href, icon, label, fullWidth }) {
+  const isMailOrPhone = href.startsWith("mailto:") || href.startsWith("tel:");
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`flex items-center gap-3 p-4 rounded-lg shadow-md bg-white hover:shadow-xl hover:scale-105 transition-transform duration-200 ${
-        fullWidth ? "w-full" : ""
-      }`}
+      {...(!isMailOrPhone ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`flex items-center gap-3 p-4 rounded-lg shadow-md bg-white 
+                  hover:shadow-xl hover:scale-105 transition-transform duration-200 
+                  ${fullWidth ? "w-full" : ""}`}
     >
       {icon}
-      <span className="text-gray-800 font-semibold">{label}</span>
+      <span className="text-gray-800 font-semibold break-all">{label}</span>
     </a>
   );
 }

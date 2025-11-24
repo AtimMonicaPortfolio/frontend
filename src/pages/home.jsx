@@ -1,37 +1,63 @@
 import Footer from "../components/footer";
+import { Link } from "react-router-dom";
+
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Main content */}
-      <main className="flex-grow mt-10 max-w-4xl mx-auto p-6">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <main 
+        className="flex-grow mt-10 max-w-4xl mx-auto p-6 
+        w-full                                  
+        "
+      >
+        <h1 
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 
+          text-center sm:text-left               
+          "
+        >
           Hello, I’m <span className="text-tigerGold">Atim Monica</span>
         </h1>
 
-        <p className="text-lg max-w-3xl leading-relaxed mb-6"> 
-        <span className="font-semibold"> Software Developer </span>
-        specializing in 
-        <span className="font-semibold"> Backend Development</span>.
-        I work with Python, Django REST Framework, Flask, and Node.js to build efficient
-        backend systems and clean API structures. I also use React to deliver smooth
-        user-facing functionality. My approach combines analytical problem-solving with
-        clean, maintainable code to create reliable and scalable software solutions.
+        <p 
+          className="text-base sm:text-lg        
+          max-w-3xl leading-relaxed mb-6 
+          text-center sm:text-left               
+          "
+        >
+          <span className="font-semibold"> Software Developer </span>
+          specializing in 
+          <span className="font-semibold"> Backend Development</span>.
+          I work with Python, Django REST Framework, Flask, and Node.js to build efficient
+          backend systems and clean API structures. I also use React to deliver smooth
+          user-facing functionality. My approach combines analytical problem-solving with
+          clean, maintainable code to create reliable and scalable software solutions.
         </p>
 
-
-        <div className="flex gap-4">
-          <a
-            href="/projects"
-            className="bg-tigerGold text-white px-6 py-3 rounded-lg shadow hover:bg-deepBlue transition"
+        <div 
+          className="flex flex-col sm:flex-row   
+          gap-4 
+          items-center sm:items-start            
+          "
+        >
+        
+          <Link
+            to="/projects"
+            className="bg-tigerGold text-white px-6 py-3 rounded-lg shadow 
+                      hover:bg-deepBlue transition
+                      w-full sm:w-auto
+                      text-center"
           >
             View My Work
-          </a>
+          </Link>
 
           <a
             href="/Atim Monica CV01.pdf"
             download
-            className="flex items-center gap-2 bg-tealBlue text-white px-6 py-3 rounded-lg shadow hover:bg-deepBlue transition"
+            className="flex items-center justify-center gap-2  
+            bg-tealBlue text-white px-6 py-3 rounded-lg shadow hover:bg-deepBlue transition
+            w-full sm:w-auto                                    
+            "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

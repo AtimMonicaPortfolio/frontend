@@ -1,5 +1,5 @@
 import Footer from "../components/footer";
-import MyImage from "../assets/about.jpg"; // change to your actual file name
+import MyImage from "../assets/about2.jpg"; // change to your actual file name
 
 export default function About() {
   return (
