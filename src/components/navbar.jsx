@@ -24,7 +24,7 @@ export default function Navbar() {
 
       {/* HAMBURGER BUTTON – shows only on mobile */}
       <button
-        className="md:hidden text-3xl absolute top-4 right-6 focus:outline-none"
+        className="md:hidden text-3xl absolute top-0 right-0 focus:outline-none"
         onClick={() => setOpen(!open)}
       >
         ☰
