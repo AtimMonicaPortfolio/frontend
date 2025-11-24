@@ -8,7 +8,8 @@ import Contact from "./pages/contact";
 
 function App() {
   return (
-    <BrowserRouter>
+    // Add basename="/frontend" because your app is deployed under /frontend
+    <BrowserRouter basename="/frontend">
       <div className="flex flex-col min-h-screen">
         {/* Navbar */}
         <Navbar />
