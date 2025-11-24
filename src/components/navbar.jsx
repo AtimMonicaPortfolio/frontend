@@ -24,7 +24,7 @@ export default function Navbar() {
 
       {/* HAMBURGER BUTTON – shows only on mobile */}
       <button
-        className="md:hidden text-3xl"
+        className="md:hidden text-3xl absolute top-4 right-6 focus:outline-none"
         onClick={() => setOpen(!open)}
       >
         ☰
@@ -36,11 +36,11 @@ export default function Navbar() {
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <a href="/" className="px-4 py-2">Home</a>
-        <a href="/about" className="px-4 py-2">About</a>
-        <a href="/skills" className="px-4 py-2">Skills</a>
-        <a href="/projects" className="px-4 py-2">Projects</a>
-        <a href="/contact" className="px-4 py-2">Contact</a>
+        <Link to="/" className="px-4 py-2">Home</Link>
+        <Link to="/about" className="px-4 py-2">About</Link>
+        <Link to="/skills" className="px-4 py-2">Skills</Link>
+        <Link to="/projects" className="px-4 py-2">Projects</Link>
+        <Link to="/contact" className="px-4 py-2">Contact</Link>
       </div>
 
 
