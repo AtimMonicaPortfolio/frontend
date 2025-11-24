@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className="bg-tealBlue text-white py-4 px-6 flex justify-between items-center shadow-md">
 
       {/* Logo */}
-      <div className="flex items-center gap-1 font-extrabold">
+      <div className="fixed top-4 left-6 flex items-center gap-1 font-extrabold z-50">
         <span className="text-tigerGold text-3xl">a</span>
         <span className="flex items-center">
           <svg
@@ -21,6 +21,7 @@ export default function Navbar() {
         </span>
         <span className="text-white text-3xl">m</span>
       </div>
+
 
       {/* HAMBURGER BUTTON – shows only on mobile */}
       <button
