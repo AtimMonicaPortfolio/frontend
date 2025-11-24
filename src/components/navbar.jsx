@@ -5,12 +5,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-tealBlue text-white py-4 px-6 flex justify-between items-center shadow-md">
+    <nav className="bg-tealBlue text-white py-6 px-6 shadow-md relative flex items-center justify-between">
 
-      {/* Logo */}
-      <div className="fixed top-4 left-6 flex items-center gap-1 font-extrabold z-50">
-        <span className="text-tigerGold text-3xl">a</span>
-        <span className="flex items-center">
+      {/* LOGO – top-left */}
+      <div className="flex items-center gap-1 font-extrabold text-3xl">
+        <span className="text-tigerGold">a</span>
+        {/* <span className="flex items-center">
           <svg
             className="w-2.5 h-2.5 text-deepBlue"
             fill="currentColor"
@@ -18,44 +18,20 @@ export default function Navbar() {
           >
             <circle cx="4" cy="4" r="4" />
           </svg>
-        </span>
-        <span className="text-white text-3xl">m</span>
+        </span> */}
+        <span className="text-white">m</span>
       </div>
 
-
-      {/* HAMBURGER BUTTON – shows only on mobile */}
+      {/* HAMBURGER BUTTON – top-right on mobile */}
       <button
-        className="md:hidden text-3xl absolute top-0 right-0 focus:outline-none"
+        className="md:hidden text-3xl focus:outline-none"
         onClick={() => setOpen(!open)}
       >
         ☰
       </button>
 
-      {/* MOBILE MENU */}
-      <div
-        className={`md:hidden flex flex-col gap-4 mt-4 transition-all duration-300 ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-        }`}
-      >
-        <Link to="/" className="px-4 py-2">Home</Link>
-        <Link to="/about" className="px-4 py-2">About</Link>
-        <Link to="/skills" className="px-4 py-2">Skills</Link>
-        <Link to="/projects" className="px-4 py-2">Projects</Link>
-        <Link to="/contact" className="px-4 py-2">Contact</Link>
-      </div>
-
-
-      {/* NAV LINKS */}
-      <div
-        className={`
-          flex gap-6 font-bold text-lg
-          
-          hidden md:flex              /* <-- Shows on tablet & desktop */
-          
-          ${open ? "flex flex-col absolute top-16 right-6 bg-tealBlue p-4 rounded-lg shadow-lg md:hidden" : ""} 
-          /* <-- Shows dropdown on mobile when open */
-        `}
-      >
+      {/* DESKTOP LINKS – right side */}
+      <div className="hidden md:flex gap-6 font-bold text-lg">
         <Link to="/" className="hover:text-tigerGold">Home</Link>
         <Link to="/about" className="hover:text-tigerGold">About</Link>
         <Link to="/skills" className="hover:text-tigerGold">Skills</Link>
@@ -63,6 +39,18 @@ export default function Navbar() {
         <Link to="/contact" className="hover:text-tigerGold">Contact</Link>
       </div>
 
+      {/* MOBILE MENU – slides from right */}
+      <div
+        className={`md:hidden absolute top-full right-0 bg-tealBlue w-2/3 flex flex-col gap-6 p-6 transition-transform duration-300 ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <Link to="/" onClick={() => setOpen(false)} className="hover:text-tigerGold">Home</Link>
+        <Link to="/about" onClick={() => setOpen(false)} className="hover:text-tigerGold">About</Link>
+        <Link to="/skills" onClick={() => setOpen(false)} className="hover:text-tigerGold">Skills</Link>
+        <Link to="/projects" onClick={() => setOpen(false)} className="hover:text-tigerGold">Projects</Link>
+        <Link to="/contact" onClick={() => setOpen(false)} className="hover:text-tigerGold">Contact</Link>
+      </div>
     </nav>
   );
 }
