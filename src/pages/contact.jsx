@@ -148,19 +148,24 @@ export function ContactBar() {
   );
 }
 
-
 function ContactCard({ href, icon, label, fullWidth }) {
   const isMailOrPhone = href.startsWith("mailto:") || href.startsWith("tel:");
   return (
     <a
       href={href}
       {...(!isMailOrPhone ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`flex items-center gap-3 p-4 rounded-lg shadow-md bg-white 
-                  hover:shadow-xl hover:scale-105 transition-transform duration-200 
-                  ${fullWidth ? "w-full" : ""}`}
+      className={`
+        flex items-center gap-3 p-4 rounded-lg shadow-md bg-white 
+        hover:shadow-xl hover:scale-105 transition-transform duration-200
+        ${fullWidth ? "w-full" : ""}
+        justify-center md:justify-start
+      `}
     >
       {icon}
-      <span className="text-gray-800 font-semibold break-all">{label}</span>
+      {/* Hide label on mobile, show from md screens */}
+      <span className="text-gray-800 font-semibold break-all hidden md:inline">
+        {label}
+      </span>
     </a>
   );
 }
