@@ -1,4 +1,5 @@
 import Footer from "../components/footer";
+import { motion } from "framer-motion";
 
 export default function Skills() {
   const skillSections = [
@@ -45,11 +46,8 @@ export default function Skills() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      
       {/* Main content */}
-      <main 
-        className="flex-grow p-4 sm:p-6 max-w-5xl mx-auto"
-      >
+      <main className="flex-grow p-4 sm:p-6 max-w-5xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-left mb-6 sm:mb-8">
           Skills & Technologies
         </h1>
@@ -60,9 +58,7 @@ export default function Skills() {
               {section.title}
             </h2>
 
-            <div 
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
               {section.skills.map((skill, idx) => (
                 <div
                   key={idx}
@@ -70,13 +66,31 @@ export default function Skills() {
                 >
                   {skill.icon ? (
                     typeof skill.icon === "string" ? (
-                      <img 
-                        src={skill.icon} 
-                        alt={skill.name} 
-                        className="w-10 h-10 sm:w-12 sm:h-12 mb-2 sm:mb-3"
+                      <motion.img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-10 h-10 sm:w-12 sm:h-12 mb-2 sm:mb-3"  // 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.1, type: "spring", stiffness: 100 }}
+                        whileHover={{ scale: 1.2 }}
+                        
                       />
                     ) : (
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 mb-2 sm:mb-3">{skill.icon}</div>
+                      <motion.div
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-10 h-10 sm:w-12 sm:h-12 mb-2 sm:mb-3"
+                        animate={{ x: [0, 10, -10, 0] }} // move right 10px, left 10px, back to center
+                        transition={{
+                          duration: 60,    // takes 60 seconds for one full left-right cycle
+                          repeat: Infinity, // repeats forever
+                          ease: "linear"    // smooth constant speed
+                        }}
+                        whileHover={{ scale: 1.2 }} // optional hover zoom
+                      >
+                        {skill.icon}
+                      </motion.div>
                     )
                   ) : (
                     <span className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">
@@ -99,3 +113,4 @@ export default function Skills() {
     </div>
   );
 }
+

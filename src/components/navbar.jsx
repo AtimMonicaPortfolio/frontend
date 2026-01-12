@@ -1,26 +1,20 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import logo from "../assets/logo_name.jpeg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
     <nav className="bg-tealBlue text-white py-6 px-6 shadow-md relative flex items-center justify-between">
-
-      {/* LOGO – top-left */}
-      <div className="flex items-center gap-1 font-extrabold text-3xl">
-        <span className="text-tigerGold">a</span>
-        {/* <span className="flex items-center">
-          <svg
-            className="w-2.5 h-2.5 text-deepBlue"
-            fill="currentColor"
-            viewBox="0 0 8 8"
-          >
-            <circle cx="4" cy="4" r="4" />
-          </svg>
-        </span> */}
-        <span className="text-white">m</span>
+      <div className="flex items-center">
+        <img
+          src={logo}
+          alt="Personal Brand Logo"
+          className="h-12 w-auto animate-spin-slow hover:animate-bounce-slow"
+        />
       </div>
+
 
       {/* HAMBURGER BUTTON – top-right on mobile */}
       <button

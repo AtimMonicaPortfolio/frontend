@@ -110,12 +110,13 @@ export default function Contact() {
 // CONTACT BAR
 export function ContactBar() {
   return (
-    <div className="p-6 md:p-10 rounded-md flex flex-col gap-6 shadow-lg w-full md:max-w-md">
+    <div className="p-6 md:p-10 rounded-md flex flex-col gap-6 shadow-lg w-full md:max-w-md bg-tealBlue">
+      
 
       {/* Email always on top */}
       <ContactCard
         href="mailto:atimmonica360@gmail.com"
-        icon={<HiOutlineMail className="w-6 h-6 text-teal-800" />}
+        icon={<HiOutlineMail className="w-6 h-6 text-tigerGold" />}
         label="atimmonica360@gmail.com"
         fullWidth
       />
@@ -124,22 +125,22 @@ export function ContactBar() {
       <div className="grid grid-cols-2 gap-2">
         <ContactCard
           href="tel:+256782569360"
-          icon={<HiOutlinePhone className="w-6 h-6 text-green-600" />}
+          icon={<HiOutlinePhone className="w-6 h-6 text-tigerGold" />}
           label="+256782569360"
         />
         <ContactCard
           href="https://wa.me/256782569360"
-          icon={<FaWhatsapp className="w-6 h-6 text-green-500" />}
+          icon={<FaWhatsapp className="w-6 h-6 text-tigerGold" />}
           label="WhatsApp"
         />
         <ContactCard
           href="https://www.linkedin.com/in/atim-monica-a4a043299"
-          icon={<FaLinkedin className="w-6 h-6 text-deepblue-700" />}
+          icon={<FaLinkedin className="w-6 h-6 text-tigerGold" />}
           label="LinkedIn"
         />
         <ContactCard
           href="https://github.com/ATIM-MONICA"
-          icon={<FaGithub className="w-6 h-6 text-gray-900" />}
+          icon={<FaGithub className="w-6 h-6 text-tigerGold" />}
           label="GitHub"
         />
       </div>
@@ -147,6 +148,7 @@ export function ContactBar() {
     </div>
   );
 }
+
 
 function ContactCard({ href, icon, label, fullWidth }) {
   const isMailOrPhone = href.startsWith("mailto:") || href.startsWith("tel:");
@@ -169,3 +171,5 @@ function ContactCard({ href, icon, label, fullWidth }) {
     </a>
   );
 }
+
+

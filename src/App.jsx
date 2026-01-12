@@ -6,6 +6,9 @@ import Skills from "./pages/skills";
 import Projects from "./pages/projects";
 import Contact from "./pages/contact";
 
+
+
+
 function App() {
   return (
     // Add basename="/frontend" because your app is deployed under /frontend
